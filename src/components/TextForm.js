@@ -8,13 +8,25 @@ export default function TextForm(props) {
   };
   const upperCase = () => {
     setText(Text.toUpperCase());
+    props.showAlert("Converted to Upper Case","Success");
   };
   const lowerCase = () => {
     setText(Text.toLowerCase());
+    props.showAlert("Converted to Lower Case","Success");
   };
   const clearText = () => {
     setText("");
+    props.showAlert("Cleared the Text Field ","Success");
   };
+  const NoOfWords=()=>{
+    if (Text === "") {
+      return 0
+    } else if(Text.charAt(Text.length-1)==" "){
+      return Text.split(" ").length-1
+    } else {
+      return Text.split(" ").length
+    }
+  }
   return (
     <div
       className="container-fluid"
@@ -44,7 +56,7 @@ export default function TextForm(props) {
         <div className="my-3">
           <p>Your text summary</p>
           <p>
-            {Text === "" ? 0 : Text.split(" ").length} words {Text.length}{" "}
+            <NoOfWords/> words {Text.length}{" "}
             characters
           </p>
         </div>
