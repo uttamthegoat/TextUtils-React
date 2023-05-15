@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
@@ -7,9 +8,9 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <Link to="/" className="navbar-brand">
           {props.title}
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -24,14 +25,14 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <Link to="/" className="nav-link active" aria-current="page">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
-                {props.aboutText}
-              </a>
+              <Link to="/about" className="nav-link">
+                About
+              </Link>
             </li>
           </ul>
           <div className="form-check form-switch">
@@ -43,7 +44,7 @@ export default function Navbar(props) {
               onClick={props.toggleMode}
             />
             <label className={`form-check-label text-${props.mode==='dark'?'light':'dark'}`} htmlFor="flexSwitchCheckDefault">
-              Enable {props.mode=='light'?'Dark':'Light'} Mode
+              Enable {props.mode==='light'?'Dark':'Light'} Mode
             </label>
           </div>
           {/* <form className="d-flex" role="search">
@@ -64,10 +65,5 @@ export default function Navbar(props) {
 }
 
 Navbar.propTypes = {
-  title: PropTypes.string.isRequired,
-  aboutText: PropTypes.string.isRequired,
-};
-
-Navbar.defaultProps = {
-  aboutText: "About",
+  title: PropTypes.string.isRequired
 };

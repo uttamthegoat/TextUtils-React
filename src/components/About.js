@@ -7,7 +7,7 @@ export default function About() {
     })
     const [modeText, setModeText] = useState("Dark")
     function changeMode() {
-        if(myStyle.color=="black"){
+        if(myStyle.color==="black"){
             setMyStyle({
                 color:'white',
                 backgroundColor:'black'

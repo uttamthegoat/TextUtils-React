@@ -21,7 +21,7 @@ export default function TextForm(props) {
   const NoOfWords=()=>{
     if (Text === "") {
       return 0
-    } else if(Text.charAt(Text.length-1)==" "){
+    } else if(Text.charAt(Text.length-1)===" "){
       return Text.split(" ").length-1
     } else {
       return Text.split(" ").length
