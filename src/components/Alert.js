@@ -11,7 +11,7 @@ function Alert(props) {
       role="alert"
     >
       <strong><Capitalise/></strong>
-      {props.alert.msg}
+       {" "+props.alert.msg}
     </div>
   );
 }

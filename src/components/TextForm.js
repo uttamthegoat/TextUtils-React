@@ -7,26 +7,38 @@ export default function TextForm(props) {
     setText(event.target.value);
   };
   const upperCase = () => {
-    setText(Text.toUpperCase());
-    props.showAlert("Converted to Upper Case","Success");
+    if (Text === "") {
+      props.showAlert("Enter something mofo", "warning");
+    } else {
+      setText(Text.toUpperCase());
+      props.showAlert("Converted to Upper Case", "success");
+    }
   };
   const lowerCase = () => {
-    setText(Text.toLowerCase());
-    props.showAlert("Converted to Lower Case","Success");
+    if (Text === "") {
+      props.showAlert("Enter something mofo", "warning");
+    } else {
+      setText(Text.toLowerCase());
+      props.showAlert("Converted to Lower Case", "success");
+    }
   };
   const clearText = () => {
-    setText("");
-    props.showAlert("Cleared the Text Field ","Success");
-  };
-  const NoOfWords=()=>{
-    if (Text === "") {
-      return 0
-    } else if(Text.charAt(Text.length-1)===" "){
-      return Text.split(" ").length-1
+    if (Text==="") {
+      props.showAlert("Enter something mofo", "warning");
     } else {
-      return Text.split(" ").length
+      setText("");
+    props.showAlert("Cleared the Text Field ", "success");
     }
-  }
+  };
+  const NoOfWords = () => {
+    if (Text === "") {
+      return 0;
+    } else if (Text.charAt(Text.length - 1) === " ") {
+      return Text.split(" ").length - 1;
+    } else {
+      return Text.split(" ").length;
+    }
+  };
   return (
     <div
       className="container-fluid"
@@ -56,8 +68,7 @@ export default function TextForm(props) {
         <div className="my-3">
           <p>Your text summary</p>
           <p>
-            <NoOfWords/> words {Text.length}{" "}
-            characters
+            <NoOfWords /> words {Text.length} characters
           </p>
         </div>
         <div className="preview">
