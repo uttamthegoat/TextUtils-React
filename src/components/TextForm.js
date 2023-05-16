@@ -73,7 +73,7 @@ export default function TextForm(props) {
           </p>
           <p>{noOfWords* 0.0016} Minutes to read</p>
         </div>
-        <div className="preview">
+        <div>
           <h3>The preview is: </h3>
           <p>{Text.length > 0 ? Text : "Enter something to preview it here"}</p>
         </div>
