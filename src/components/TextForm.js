@@ -81,8 +81,3 @@ export default function TextForm(props) {
     </div>
   );
 }
-
-// document.querySelector("button").onclick = function(){
-//   document.querySelector("textarea").select();
-//   document.execCommand('copy');
-// }
