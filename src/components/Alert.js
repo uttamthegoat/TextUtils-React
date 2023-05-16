@@ -1,6 +1,6 @@
 import React from "react";
 
-function Alert(props) {
+export default function Alert(props) {
     const Capitalise=()=>{
         const lower=props.alert.type.toLowerCase()
         return lower.charAt(0).toUpperCase()+lower.slice(1)+"!"
@@ -16,5 +16,3 @@ function Alert(props) {
     </div>
   );
 }
-
-export default Alert;

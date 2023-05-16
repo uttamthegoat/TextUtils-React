@@ -6,7 +6,7 @@ import TextForm from "./components/TextForm";
 import About from "./components/About";
 import { Route, Routes } from "react-router-dom";
 
-function App() {
+export default function App() {
   const [mode, setmode] = useState("light");
   const [alert, setalert] = useState(null);
 
@@ -51,11 +51,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
-
-//   /* <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-// <Alert alert={alert} />
-// <TextForm heading="Enter the text" mode={mode} showAlert={showAlert} />
-// <About /> */
-
