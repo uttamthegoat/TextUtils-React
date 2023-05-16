@@ -8,7 +8,7 @@ export default function TextForm(props) {
   };
   const upperCase = () => {
     if (Text === "") {
-      props.showAlert("Enter something mofo", "warning");
+      props.showAlert("Enter something mofo 🐒!", "warning");
     } else {
       setText(Text.toUpperCase());
       props.showAlert("Converted to Upper Case", "success");
@@ -16,29 +16,21 @@ export default function TextForm(props) {
   };
   const lowerCase = () => {
     if (Text === "") {
-      props.showAlert("Enter something mofo", "warning");
+      props.showAlert("Enter something mofo 🐒!", "warning");
     } else {
       setText(Text.toLowerCase());
       props.showAlert("Converted to Lower Case", "success");
     }
   };
   const clearText = () => {
-    if (Text==="") {
+    if (Text === "") {
       props.showAlert("Enter something mofo", "warning");
     } else {
       setText("");
-    props.showAlert("Cleared the Text Field ", "success");
+      props.showAlert("Cleared the Text Field ", "success");
     }
   };
-  const NoOfWords = () => {
-    if (Text === "") {
-      return 0;
-    } else if (Text.charAt(Text.length - 1) === " ") {
-      return Text.split(" ").length - 1;
-    } else {
-      return Text.split(" ").length;
-    }
-  };
+  const noOfWords=Text.split(" ").filter((element) => element !== "").length;
   return (
     <div
       className="container-fluid"
@@ -68,8 +60,9 @@ export default function TextForm(props) {
         <div className="my-3">
           <p>Your text summary</p>
           <p>
-            <NoOfWords /> words {Text.length} characters
+            {noOfWords} words {Text.length} characters
           </p>
+          <p>{noOfWords* 0.0016} Minutes to read</p>
         </div>
         <div className="preview">
           <h3>The preview is: </h3>

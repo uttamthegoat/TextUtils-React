@@ -1,123 +1,57 @@
-import React, {useState} from "react";
+import React from "react";
+import styles from "./About.module.css";
 
-export default function About() {
-    const [myStyle, setMyStyle] = useState({
-        color:'black',
-        backgroundColor:'white'
-    })
-    const [modeText, setModeText] = useState("Dark")
-    function changeMode() {
-        if(myStyle.color==="black"){
-            setMyStyle({
-                color:'white',
-                backgroundColor:'black'
-            })
-            setModeText('Light')
-        }else{
-            setMyStyle({
-                color:'black',
-                backgroundColor:'white'
-            })
-            setModeText('Dark')
-        }
-    }
+export default function About(props) {
+  let myStyle={
+    color:props.mode==="dark"?"white":"black",
+    backgroundColor:props.mode==="dark"?"#313954":"white"
+  }
   return (
-    <div className="container my-4 p-4" style={myStyle}>
-      <h1>About Us</h1>
-      <div className="accordion" id="accordionExample">
-        <div className="accordion-item" style={myStyle}>
-          <h2 className="accordion-header">
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-            >
-              Accordion Item #1
-            </button>
-          </h2>
-          <div
-            id="collapseOne"
-            className="accordion-collapse collapse show"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-        <div className="accordion-item" style={myStyle}>
-          <h2 className="accordion-header">
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-            >
-              Accordion Item #2
-            </button>
-          </h2>
-          <div
-            id="collapseTwo"
-            className="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-        <div className="accordion-item" style={myStyle}>
-          <h2 className="accordion-header">
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree"
-            >
-              Accordion Item #3
-            </button>
-          </h2>
-          <div
-            id="collapseThree"
-            className="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="my-4 text-center">
-        <button onClick={changeMode} className="btn btn-primary">{modeText}</button>
+    <div className="container my-3">
+      <h1
+        className={styles.about_header}
+        style={myStyle}
+      >
+        About
+      </h1>
+      <div className={styles.aboutTextUtils} style={myStyle}>
+        <p>
+          Word Counter is an easy to use online tool for counting words,
+          characters, sentences, paragraphs and pages in real time, along with
+          spelling and grammar checking. Get started by typing directly into the
+          text area above or pasting in your content from elsewhere. Word and
+          character counts will display at the top, any writing mistakes will be
+          underlined and your most frequently used keywords will appear to the
+          right.
+        </p>
+        <hr className={styles.divider}/>
+        <ul className={styles.listProperties}>
+          <li>
+            <h3>Analyze your text</h3>
+            <p>
+              TextUtils gives you a way to analyze your text quickly and
+              efficiently. Be it word count or reading speed.
+            </p>
+          </li>
+          <li>
+            <h3>Free to Use</h3>
+            <p>
+              TextUtils is a free character Counter tool that provides character
+              or word count, statistics for a given text. TextUtils reports the
+              number of words and characters. Thus it is suitable for writing
+              text with word /character limit.
+            </p>
+          </li>
+          <li>
+            <h3>Browser Compatible</h3>
+            <p>
+              This word counter software works on any web browser such as
+              Chrome, Firefox, Internet Explorer, Safari, Opera. It suits to
+              count characters in FaceBook, Blog, Excel document, pdf document,
+              essays, etc
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
   );
