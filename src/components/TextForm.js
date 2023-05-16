@@ -30,7 +30,15 @@ export default function TextForm(props) {
       props.showAlert("Cleared the Text Field ", "success");
     }
   };
-  const noOfWords=Text.split(" ").filter((element) => element !== "").length;
+  const copyText=()=>{
+    if (Text === "") {
+      props.showAlert("Enter something mofo", "warning");
+    } else {
+      navigator.clipboard.writeText(Text)
+      props.showAlert("Copied to clipboard ", "success");
+    }
+  }
+  const noOfWords=Text.split(/\s+/).filter(word=>word!=="").length;
   return (
     <div
       className="container-fluid"
@@ -57,6 +65,7 @@ export default function TextForm(props) {
         <TextFormBtn btnText="upperCase" onclick={upperCase} />
         <TextFormBtn btnText="lowerCase" onclick={lowerCase} />
         <TextFormBtn btnText="clearText" onclick={clearText} />
+        <TextFormBtn btnText="copyText" onclick={copyText} />
         <div className="my-3">
           <p>Your text summary</p>
           <p>
@@ -72,3 +81,8 @@ export default function TextForm(props) {
     </div>
   );
 }
+
+// document.querySelector("button").onclick = function(){
+//   document.querySelector("textarea").select();
+//   document.execCommand('copy');
+// }
