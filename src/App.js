@@ -36,7 +36,6 @@ export default function App() {
       <Alert alert={alert} />
       <Routes>
         <Route
-          exact
           path="/"
           element={
             <TextForm
@@ -46,7 +45,7 @@ export default function App() {
             />
           }
         />
-        <Route exact path="/about" element={<About mode={mode}/>} />
+        <Route path="/about" element={<About mode={mode}/>} />
       </Routes>
     </div>
   );
